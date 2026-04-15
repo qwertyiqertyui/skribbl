@@ -9,13 +9,13 @@ To install the Scribbl Drawing Bot, follow these steps:
    ```
 2. Install the required dependencies:
    ```bash
-   npm install
+   pip install -r requirements.txt
    ```
 
 ## Usage
 To start the Scribbl Drawing Bot, run the following command:
 ```bash
-npm start
+python scribbl_drawing_bot.py
 ```
 Once the bot is running, it will connect to the Scribbl game server.
 
