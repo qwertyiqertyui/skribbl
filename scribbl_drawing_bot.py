@@ -132,5 +132,8 @@ if __name__ == '__main__':
         print('Invalid mode. Please choose "server" or "client".')
         sys.exit(1)
     
-    bot = ScribblDrawingBot(mode=mode)
+    host = input('Enter server address (default 127.0.0.1): ').strip() or '127.0.0.1'
+    port = int(input('Enter port (default 65432): ').strip() or 65432)
+    
+    bot = ScribblDrawingBot(mode=mode, host=host, port=port)
     bot.run()
