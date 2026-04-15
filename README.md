@@ -28,7 +28,7 @@ Once the bot is running, it will connect to the Scribbl game server.
 ## Examples
 1. **Starting the Bot:**
    ```bash
-   npm start
+   python scribbl_drawing_bot.py
    ```
    This will initiate the bot and connect it to the game.
 
