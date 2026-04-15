@@ -132,8 +132,19 @@ if __name__ == '__main__':
         print('Invalid mode. Please choose "server" or "client".')
         sys.exit(1)
     
-    host = input('Enter server address (default 127.0.0.1): ').strip() or '127.0.0.1'
-    port = int(input('Enter port (default 65432): ').strip() or 65432)
+    default_host = '0.0.0.0' if mode == 'server' else '127.0.0.1'
+    host_prompt = 'Enter server address (default {}): '.format(default_host)
+    host = input(host_prompt).strip() or default_host
+    
+    port_input = input('Enter port (default 65432): ').strip()
+    try:
+        port = int(port_input) if port_input else 65432
+    except ValueError:
+        print('Invalid port number. Using default port 65432.')
+        port = 65432
+    
+    if mode == 'server' and host == '0.0.0.0':
+        print('\nNote: server is listening on all interfaces. Use your forwarded port address or localhost if running locally.')
     
     bot = ScribblDrawingBot(mode=mode, host=host, port=port)
     bot.run()
